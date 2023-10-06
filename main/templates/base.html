@@ -5,13 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block head_title %}Title{% endblock %}</title>
+    <title>{% block head_title %}Strata Web App{% endblock %}</title>
+
+
+    {% include 'head/css.html' %}
 </head>
 <body>
-    <div>
+    <div class="columns-5">
+        <div class="flex flex-row">
+
+        <div class="fixed top-0 left-0 h-screen bg-blue-700 text-white-100 w-16 m-0 flex flex-col shadow-lg ">
+            <i class="sidebar-icon"><a href="{% url 'home' %}"> Home</a></i>
+            <i class="sidebar-icon"> <a href="{% url 'player' %}">Player </a></i>
+    {% if user.is_authenticated %}
+        <i class="sidebar-icon"> Playlist creation</i>
+    {% endif %}
+            <li class="sidebar-icon">Playlists </li>
+
+            <li class="sidebar-icon"><a href="{% url 'login' %}"> Login</a></li>
+
+        </div>
+        </div>
+
+    <div class="flex flex-row">
         {% block content %}
-    {% endblock %}
+
+        {% endblock %}
+    </div>
+
+    </div>
+
+
     </div>
 
 </body>
+
 </html>

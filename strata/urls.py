@@ -19,9 +19,17 @@ from django.urls import path, include
 from django.conf import settings
 from main import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.home_view, name="home")
+    path('api-auth/', include('rest_framework.urls')),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("", views.home_view, name="home"),
+    path("login/", views.login, name="login"),
+    path("register/", views.register, name="register"),
+    path("player/", views.player, name="player"),
+
+
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,3 @@
+CLIENT_ID ="1fe6fad096474482ad1d9169244432dc"
+CLIENT_SECRET = "b6debff9bf07479ab5fee09bc4fdd2de"
+REDIRECT_URI = "http://"
